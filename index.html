@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AniFind – Discover Anime</title>
+  <meta name="description" content="Search anime, browse what's airing, keep a watchlist and find where to watch legally.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#" id="brand">Ani<span>Find</span></a>
+    <form class="search" id="searchForm" role="search">
+      <input id="searchInput" type="search" placeholder="Search anime, e.g. Naruto, Spy x Family…" autocomplete="off" aria-label="Search anime">
+      <button type="submit">Search</button>
+    </form>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Sections">
+    <button data-view="airing" class="active">Trending now</button>
+    <button data-view="season">This season</button>
+    <button data-view="top">Top rated</button>
+    <button data-view="list">My list <span id="listCount" class="count">0</span></button>
+  </nav>
+
+  <main>
+    <section id="genreBar" class="genre-bar" aria-label="Filter by genre">
+      <div class="genre-head">
+        <span class="label">Genres</span>
+        <span id="genreSummary" class="summary"></span>
+        <button id="clearGenres" type="button" class="clear" hidden>Clear</button>
+      </div>
+      <div id="genres" class="genres"></div>
+    </section>
+    <div class="bar">
+      <h1 id="viewTitle">Trending now</h1>
+      <div id="listFilter" class="list-filter" hidden>
+        <button data-status="all" class="active">All</button>
+        <button data-status="watching">Watching</button>
+        <button data-status="plan">Plan to watch</button>
+        <button data-status="completed">Completed</button>
+      </div>
+    </div>
+    <p id="message" class="message" hidden></p>
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <div class="more"><button id="loadMore" hidden>Load more</button></div>
+  </main>
+
+  <dialog id="detail" class="detail">
+    <button class="close" id="closeDetail" aria-label="Close">×</button>
+    <div id="detailBody"></div>
+  </dialog>
+
+  <footer>
+    Data from <a href="https://anilist.co" target="_blank" rel="noopener">AniList</a>.
+    AniFind does not host any videos. "Where to watch" links go to official, licensed services.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
